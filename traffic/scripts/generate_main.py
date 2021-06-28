@@ -45,7 +45,7 @@ STATISTICS = {
 }
 
 #=====================================================#
-if True: #for code folding
+if True: #picotui (for code folding)
     from picotui.screen import Screen
     from picotui.context import Context
     from picotui.widgets import (Dialog, WCheckbox, WButton, ACTION_OK)
@@ -372,7 +372,7 @@ with Halo(text='Run and Generate traces file.') as sh:
                 '--fcd-output', fcd_file
             ], capture_output=True)
             #
-            sh.text = '[%s] Collect trace files.'%_name
+            sh.text = '[%s] Collect trace file.'%_name
             with WorkSpace(SUMO_LIB) as ws:
                 _obj = sp.run(['./traceExporter.py',
                     '--fcd-input', fcd_file,
