@@ -372,11 +372,12 @@ with Halo(text='Run and Generate traces file.') as sh:
                 '--fcd-output', fcd_file
             ], capture_output=True)
             #
-            sh.text = '[%s] Collect trace as `ipg`.'%_name
+            sh.text = '[%s] Collect trace files.'%_name
             with WorkSpace(SUMO_LIB) as ws:
                 _obj = sp.run(['./traceExporter.py',
                     '--fcd-input', fcd_file,
-                    '--ipg-output', '%s_ipg.txt'%(TRACES_FOLDER/_name)
+                    '--omnet-output', '%s_omnet.xml'%(TRACES_FOLDER/_name)
+                    # '--ipg-output', '%s_ipg.txt'%(TRACES_FOLDER/_name)
                 ], capture_output=True)
             #
             sh.succeed()
