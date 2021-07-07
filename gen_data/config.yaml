@@ -1,0 +1,38 @@
+CARLA_CLIENT:
+    host: '127.0.0.1'
+    port:    2000 #port for CARLA client
+    tm_port: 8000 #port for traffic manager
+    sync: true
+    time_step: 0.05 #(unit: second) length of time slot
+    timeout: 10.0 #(unit: second)connection timeout
+    sample_frequency: 1
+
+CARLA_MAP:
+    name: Town02 #override by `TOWN_MAP` in `params.py`
+    spectator_point:
+        - [100, 150, 150]
+        - [-60, 90,  0  ]
+    ROI:
+        - [-140, -150]
+        - [-140, 140 ]
+        - [150,  140 ]
+        - [150, -150 ]
+    initial_spawn_ROI:
+        - [-80,  -70, 0,    100]
+        - [-90,  -80, -120, 0  ]
+        - [-150, -90, 0,    10 ]
+        - [0,    10,  0,    100]
+        - [-10,  0,   -150, 0  ]
+        - [0,    150, -10,  0  ]
+    additional_spawn_ROI:
+        - [-80,  -70,  90,   100 ]
+        - [-90,  -80,  -120, -100]
+        - [-150, -140, 0,    10  ]
+        - [0,    10,   80,   135 ]
+        - [-10,  0,    -150, -120]
+        - [140,  150,  -10,  0   ]
+
+CARLA_CALIBRATION:
+    image_width  : 1242
+    image_height : 375
+    VIEW_FOV     : 90

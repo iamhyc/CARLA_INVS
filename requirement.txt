@@ -4,6 +4,7 @@ notebook
 numpy
 sklearn
 matplotlib
+networkx
 shapely
 lxml>=4.5.0
 halo
