@@ -6,6 +6,7 @@ from torch.nn.utils import clip_grad_norm_
 import random
 import pdb
 import numpy as np
+from pathlib import Path
 
 def train_one_epoch(model, optimizer, train_loader, model_func, lr_scheduler, accumulated_iter, optim_cfg,
                     rank, tbar, tb_log=None, leave_pbar=False):
@@ -101,7 +102,7 @@ def train_model(model, optimizer, train_loader, model_func, lr_scheduler, optim_
             # save trained model
             trained_epoch = cur_epoch + 1
             if trained_epoch % (total_epochs) == 0 and rank == 0:
-                ckpt_save_dir = '../model' #FIXME: remove this
+                ckpt_save_dir = Path('../model')
                 ckpt_list = glob.glob( os.path.join(ckpt_save_dir, 'checkpoint_epoch_*.pth') )
                 ckpt_list.sort(key=os.path.getmtime)
 
@@ -111,7 +112,7 @@ def train_model(model, optimizer, train_loader, model_func, lr_scheduler, optim_
 
                 #NOTE: save model and epoch
                 # ckpt_name = ckpt_save_dir / ('checkpoint_epoch_%d' % trained_epoch)
-                ckpt_name = os.path.join(ckpt_save_dir,  ('checkpoint_epoch_%d.pth' % len(ckpt_list)))
+                ckpt_name = ckpt_save_dir / ('checkpoint_epoch_%d' % len(ckpt_list))
                 torch.save({
                     'model_state':model.state_dict(),
                     'optimizer_state': optimizer.state_dict(),

@@ -1,5 +1,6 @@
 .vscode
 __pycache__
+build
 # for gen_data
 log
 raw_data
