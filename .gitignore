@@ -6,9 +6,7 @@ log
 raw_data
 dataset
 # for PCDet
-model
-PCDet/build
-PCDet/tools/cfgs/*.yaml
+PCDet/
 # for traffic
 traffic/my_data
 traffic/my_traces

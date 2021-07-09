@@ -10,6 +10,7 @@ check-dependency:
 	conda install -c conda-forge halo -y
 	pip3 install picotui
     #
+	rm -rf PCDet; git clone https://github.com/iamhyc/OpenPCDet.git PCDet --depth=1
 	$(MAKE) -C PCDet
 
 check-dependency:
