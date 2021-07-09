@@ -1,8 +1,8 @@
+SHELL:=/bin/bash
+
 all:install
 
 install:check-dependency
-
-check-dependency:
 	sudo apt install libxerces-c3.2 libjpeg8
     #
 	conda install -c open3d-admin -c conda-forge open3d -y
@@ -14,6 +14,7 @@ check-dependency:
 	$(MAKE) -C PCDet
 
 check-dependency:
+	@echo "Please ensure that conda env is activated."; read -p ''
     # #check conda
     # #check conda environment
 
